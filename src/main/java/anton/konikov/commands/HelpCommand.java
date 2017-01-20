@@ -1,4 +1,4 @@
-package commands;
+package anton.konikov.commands;
 
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Chat;
@@ -19,7 +19,7 @@ public class HelpCommand extends BotCommand {
     @Override
     public void execute(AbsSender absSender, User user, Chat chat, String[] strings) {
         StringBuilder helpMessageBuilder = new StringBuilder("<b>Help</b>\n");
-        helpMessageBuilder.append("These are the registered commands for this Bot:\n\n");
+        helpMessageBuilder.append("These are the registered anton.konikov.commands for this Bot:\n\n");
 
         for (BotCommand botCommand : commandRegistry.getRegisteredCommands()) {
             helpMessageBuilder.append(botCommand.toString()).append("\n\n");

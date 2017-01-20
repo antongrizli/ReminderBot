@@ -1,4 +1,4 @@
-package commands.nonbotcom;
+package anton.konikov.commands.nonbotcom;
 
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Update;

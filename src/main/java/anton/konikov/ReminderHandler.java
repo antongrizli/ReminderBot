@@ -1,13 +1,14 @@
-import commands.HelpCommand;
-import commands.RemindCommand;
-import commands.nonbotcom.FactoryCommand;
-import commands.nonbotcom.settime.ForFutureCommand;
-import commands.nonbotcom.settime.ForTodayCommand;
+package anton.konikov;
+
+import anton.konikov.commands.HelpCommand;
+import anton.konikov.commands.RemindCommand;
+import anton.konikov.commands.nonbotcom.FactoryCommand;
+import anton.konikov.commands.nonbotcom.settime.ForFutureCommand;
+import anton.konikov.commands.nonbotcom.settime.ForTodayCommand;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingCommandBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
-import services.Emoji;
 
 import java.util.ArrayList;
 import java.util.HashMap;

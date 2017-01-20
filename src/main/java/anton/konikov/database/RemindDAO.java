@@ -1,7 +1,9 @@
 package anton.konikov.database;
 
-/**
- * Created by KonikovA on 14.12.2016.
- */
-public class RemindDAO {
+
+public interface RemindDAO {
+    int insertRemindData();
+    boolean deleteRemindData(Long chatId);
+    Remind findRemindData(Long chatId);
+    void init();
 }

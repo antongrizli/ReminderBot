@@ -1,7 +1,8 @@
 package anton.konikov.database;
 
-/**
- * Created by KonikovA on 14.12.2016.
- */
+import java.util.Date;
+
 public class Remind {
+    public Long chatId;
+    public Date remindDate;
 }

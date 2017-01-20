@@ -1,4 +1,4 @@
-package services;
+package anton.konikov;
 
 public enum Emoji {
     // Emoticones group

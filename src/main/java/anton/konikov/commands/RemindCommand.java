@@ -1,6 +1,6 @@
-package commands;
+package anton.konikov.commands;
 
-import Utils.Utils;
+import anton.konikov.Utils;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Chat;
 import org.telegram.telegrambots.api.objects.User;

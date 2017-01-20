@@ -1,0 +1,20 @@
+01-20 16:22:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "SELECT * FROM USERDETAILS
+
+DROP TABLE[*] USERDETAILS "
+Syntax error in SQL statement "SELECT * FROM USERDETAILS
+
+DROP TABLE[*] USERDETAILS "; SQL statement:
+select * from USERDETAILS
+
+drop table USERDETAILS [42000-176]
+01-20 16:22:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "SELECT * FROM USERDETAILS
+
+DROP TABLE[*] USERDETAILS "
+Syntax error in SQL statement "SELECT * FROM USERDETAILS
+
+DROP TABLE[*] USERDETAILS "; SQL statement:
+select * from USERDETAILS
+
+drop table USERDETAILS [42000-176]

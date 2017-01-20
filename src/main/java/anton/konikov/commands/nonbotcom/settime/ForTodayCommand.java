@@ -1,6 +1,6 @@
-package commands.nonbotcom.settime;
+package anton.konikov.commands.nonbotcom.settime;
 
-import commands.nonbotcom.CustomCommand;
+import anton.konikov.commands.nonbotcom.CustomCommand;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Update;
 
