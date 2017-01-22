@@ -1,14 +1,9 @@
 package anton.konikov.database;
 
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class H2dbRemindDAO implements RemindDAO {
-    private static final String CREATE_USER = "CREATE USER IF NOT EXISTS konikov PASSWORD 'P@ssw0rd'";
-    private static final String CREATE_REMIND_TABLE = "CREATE TABLE IF NOT EXISTS RemindTable";
-    private static final String ALTER_USER_ADMIN = "CREATE TABLE IF NOT EXISTS RemindTable";
 
     private Connection connection;
 
@@ -18,7 +13,20 @@ public class H2dbRemindDAO implements RemindDAO {
     }
 
     @Override
-    public int insertRemindData() {
+    public int insertRemindData(Remind remind) {
+        try {
+            String sql = "INSERT INTO REMIND_INFO(CHAT_ID, USER_ID, REMIND_DATE, REMIND_MESSAGE) VALUES (?, ?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, 12345l);
+            statement.setLong(2, 4321l);
+            statement.setDate(3, new Date(1l));
+            Clob message = connection.createClob();
+            message.setString(1, "message");
+            statement.setClob(4, message);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return 0;
     }
 
@@ -34,13 +42,5 @@ public class H2dbRemindDAO implements RemindDAO {
 
     @Override
     public void init() {
-        try {
-            Statement statement = connection.createStatement();
-            int resultSet1 = statement.executeUpdate(CREATE_USER);
-            //int resultSet2 = statement.executeUpdate(CREATE_REMIND_TABLE);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
     }
 }

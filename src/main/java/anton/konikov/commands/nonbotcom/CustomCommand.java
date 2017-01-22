@@ -1,5 +1,7 @@
 package anton.konikov.commands.nonbotcom;
 
+import anton.konikov.database.DAOFactory;
+import anton.konikov.database.RemindDAO;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingCommandBot;
@@ -9,10 +11,15 @@ public abstract class CustomCommand {
     private final String commandIdentifier;
     private final String description;
     private TelegramLongPollingCommandBot commandBot;
+    private DAOFactory factory = null;
+    protected RemindDAO remindDAO = null;
+
 
     public CustomCommand(String commandIdentifier, String description) {
         this.commandIdentifier = commandIdentifier.toLowerCase();
         this.description = description;
+        this.factory = DAOFactory.getDAOFactory(DAOFactory.H2DB);
+        this.remindDAO = factory.getRemindDAO();
     }
 
     public final String getCommandIdentifier() {

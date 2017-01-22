@@ -2,7 +2,7 @@ package anton.konikov.database;
 
 
 public interface RemindDAO {
-    int insertRemindData();
+    int insertRemindData(Remind remind);
     boolean deleteRemindData(Long chatId);
     Remind findRemindData(Long chatId);
     void init();

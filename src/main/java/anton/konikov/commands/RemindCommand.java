@@ -26,7 +26,7 @@ public class RemindCommand extends BotCommand {
         String userName = user.getFirstName() + " " + user.getLastName();
 
         messageBuilder.append("Hi ").append(userName).append("\n");
-        messageBuilder.append("Please select day when you ");
+        messageBuilder.append("Please select day, on which you want create reminder: ");
 
         List<List<String>> rowKeyboard = new ArrayList<>();
         List<String> lineKeyboard = new ArrayList<>();

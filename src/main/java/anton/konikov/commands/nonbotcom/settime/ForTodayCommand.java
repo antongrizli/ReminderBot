@@ -1,6 +1,7 @@
 package anton.konikov.commands.nonbotcom.settime;
 
 import anton.konikov.commands.nonbotcom.CustomCommand;
+import anton.konikov.database.Remind;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Update;
 
@@ -24,6 +25,7 @@ public class ForTodayCommand extends CustomCommand {
 
     @Override
     public void subCommand(Update update) throws Exception {
+        Remind remind = new Remind();
         String msg = update.getMessage().getText();
         Long chatId = update.getMessage().getChatId();
         SimpleDateFormat parser = new SimpleDateFormat("HH:mm");
@@ -38,5 +40,11 @@ public class ForTodayCommand extends CustomCommand {
         message.setText("You set remind action for today: " + currentCalendar.getTime());
         message.setChatId(chatId);
         sendMessage(message);
+
+        remind.setRemindDate(new java.sql.Date(currentCalendar.getTimeInMillis()));
+        remind.setChatId(chatId);
+        remind.setRemindMessage(message.getText());
+        remind.setUserId(update.getMessage().getFrom().getId());
+        remindDAO.insertRemindData(remind);
     }
 }
