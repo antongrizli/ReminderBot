@@ -1,8 +1,6 @@
 package anton.konikov.database;
 
 
-import org.h2.jdbcx.JdbcDataSource;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

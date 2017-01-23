@@ -5,6 +5,7 @@ import anton.konikov.database.Remind;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Update;
 
+import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -45,6 +46,6 @@ public class ForTodayCommand extends CustomCommand {
         remind.setChatId(chatId);
         remind.setRemindMessage(message.getText());
         remind.setUserId(update.getMessage().getFrom().getId());
-        remindDAO.insertRemindData(remind);
+       // remindDAO.insertRemindData(remind);
     }
 }

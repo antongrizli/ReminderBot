@@ -5,6 +5,8 @@ import anton.konikov.commands.RemindCommand;
 import anton.konikov.commands.nonbotcom.FactoryCommand;
 import anton.konikov.commands.nonbotcom.settime.ForFutureCommand;
 import anton.konikov.commands.nonbotcom.settime.ForTodayCommand;
+import anton.konikov.database.DAOFactory;
+import anton.konikov.database.RemindDAO;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingCommandBot;
@@ -18,11 +20,16 @@ import java.util.Map;
 public class ReminderHandler extends TelegramLongPollingCommandBot {
     private Map<Long, List<String>> commandMap = new HashMap();
     private FactoryCommand factoryCustomCommand;
+    private DAOFactory factory = null;
+    protected RemindDAO remindDAO = null;
 
     public ReminderHandler() {
         factoryCustomCommand = FactoryCommand.init(this);
         factoryCustomCommand.registerCommand(new ForTodayCommand());
         factoryCustomCommand.registerCommand(new ForFutureCommand());
+
+        this.factory = DAOFactory.getDAOFactory(DAOFactory.H2DB);
+        this.remindDAO = factory.getRemindDAO();
 
         HelpCommand helpCommand = new HelpCommand(this);
         register(helpCommand);

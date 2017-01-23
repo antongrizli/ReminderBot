@@ -31,6 +31,22 @@ public class H2dbRemindDAO implements RemindDAO {
     }
 
     @Override
+    public int addNewUser() {
+        try {
+            String sql = "INSERT INTO USERDETAILS(USER_ID, FIRST_NAME, LAST_NAME, MOB_NUMBER) VALUES (?, ?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, 12345);
+            statement.setString(2, "Anton");
+            statement.setString(3, "Konikov");
+            statement.setString(4, "+380953900921");
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    @Override
     public boolean deleteRemindData(Long chatId) {
         return false;
     }
